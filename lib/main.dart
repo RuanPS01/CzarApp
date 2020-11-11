@@ -1,5 +1,3 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:characters/characters.dart';
 import 'HomeScreenObjects/HomeScreen.dart';
@@ -7,6 +5,7 @@ import './MessagesScreen.dart';
 import './MapScreen.dart';
 import './CalendarScreen.dart';
 import 'ProfileScreen.dart';
+import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,27 +21,6 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Czar App'),
-      /*
-      home: FloatingSearchBar.builder(
-        itemCount: 100,
-        itemBuilder: (BuildContext context, int index) {
-          return ListTile(
-            leading: Text(index.toString()),
-          );
-        },
-        trailing: CircleAvatar(
-          child: Text("RD"),
-        ),
-        drawer: Drawer(
-          child: Container(),
-        ),
-        onChanged: (String value) {},
-        onTap: () {},
-        decoration: InputDecoration.collapsed(
-          hintText: "Search...",
-        ),
-      ),
-      */
     );
   }
 }
@@ -76,35 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    CustomBottomNavigationBar widGetBarNav = new CustomBottomNavigationBar(
-      iconList: [
-        Icons.home,
-        Icons.message,
-        Icons.map,
-        Icons.calendar_today,
-        Icons.person,
-      ],
-      onChange: (indexSelected) {
-        _onItemTapped(indexSelected);
-        _pageController.animateToPage(indexSelected,
-            duration: Duration(milliseconds: 500),
-            curve: Curves.linearToEaseOut);
-      },
-      defaultSelectedIndex: 0,
-    );
     return Scaffold(
-      /*
-      appBar: CustomAppBar(
-        height: 120,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(),E
-            Text(''),
-          ],
-        ),
-      ),
-      */
       body: SafeArea(
           child: PageView(
         children: [
@@ -116,108 +66,34 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
         onPageChanged: (value) {
           _onItemTapped(value);
-          widGetBarNav.selecIndex = value;
+          //widGetBarNav.selecIndex = value;
         },
         controller: _pageController,
       )),
-      /*
-      bottomNavigationBar: CurvedNavigationBar(
+      bottomNavigationBar: CustomNavigationBar(
+        iconSize: 30.0,
+        selectedColor: Colors.cyan,
+        strokeColor: Colors.cyan[100],
+        unSelectedColor: Color(0xffacacac),
         backgroundColor: Colors.white,
-        color: Colors.black,
-        items: <Widget>[
-          Icon(
-            Icons.home,
-            color: Colors.cyan,
-            size: 30,
+        items: [
+          CustomNavigationBarItem(
+            icon: Icons.home,
           ),
-          Icon(
-            Icons.message,
-            color: Colors.cyan,
-            size: 30,
+          CustomNavigationBarItem(
+            icon: Icons.message,
           ),
-          Icon(
-            Icons.map,
-            color: Colors.cyan,
-            size: 30,
+          CustomNavigationBarItem(
+            icon: Icons.map,
           ),
-          Icon(
-            Icons.calendar_today,
-            color: Colors.cyan,
-            size: 30,
+          CustomNavigationBarItem(
+            icon: Icons.calendar_today,
           ),
-          Icon(
-            Icons.person,
-            color: Colors.cyan,
-            size: 30,
-          ),
-        ],
-        onTap: (indexSelected) {
-          _onItemTapped(indexSelected);
-          _pageController.animateToPage(indexSelected,
-              duration: Duration(milliseconds: 500),
-              curve: Curves.linearToEaseOut);
-        },
-        animationDuration: Duration(milliseconds: 150),
-      ),
-
-      
-      bottomNavigationBar: FancyBottomNavigation(
-          tabs: [
-            TabData(
-              iconData: Icons.home,
-              title: "Home",
-            ),
-            TabData(
-              iconData: Icons.message,
-              title: "Messages",
-            ),
-            /*
-            TabData(
-              iconData: Icons.map,
-              title: "Map",
-            ),
-            */
-            TabData(
-              iconData: Icons.calendar_today,
-              title: "Calendar",
-            ),
-            TabData(
-              iconData: Icons.person,
-              title: "Me",
-            )
-          ],
-          initialSelection: _selectedIndex,
-          onTabChangedListener: (position) {
-            setState(() {
-              _selectedIndex = position;
-            });
-          }),
-      
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.cyan),
-            title: Text('Home', style: TextStyle(color: Colors.cyan)),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.message, color: Colors.cyan),
-            title: Text('Messages', style: TextStyle(color: Colors.cyan)),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.map, color: Colors.cyan),
-            title: Text('Map', style: TextStyle(color: Colors.cyan)),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today, color: Colors.cyan),
-            title: Text('Calendar', style: TextStyle(color: Colors.cyan)),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person, color: Colors.cyan),
-            title: Text('Me', style: TextStyle(color: Colors.cyan)),
+          CustomNavigationBarItem(
+            icon: Icons.account_circle,
           ),
         ],
         currentIndex: _selectedIndex,
-        iconSize: 25,
         onTap: (indexSelected) {
           _onItemTapped(indexSelected);
           _pageController.animateToPage(indexSelected,
@@ -225,26 +101,6 @@ class _MyHomePageState extends State<MyHomePage> {
               curve: Curves.linearToEaseOut);
         },
       ),
-      */
-      bottomNavigationBar: widGetBarNav,
-      /*
-      bottomNavigationBar: CustomBottomNavigationBar(
-        iconList: [
-          Icons.home,
-          Icons.message,
-          Icons.map,
-          Icons.calendar_today,
-          Icons.person,
-        ],
-        onChange: (indexSelected) {
-          _onItemTapped(indexSelected);
-          _pageController.animateToPage(indexSelected,
-              duration: Duration(milliseconds: 500),
-              curve: Curves.linearToEaseOut);
-        },
-        defaultSelectedIndex: 0,
-      ),
-      */
     );
   }
 }

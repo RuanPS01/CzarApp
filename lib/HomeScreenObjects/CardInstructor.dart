@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import '../DataScripts/DataQuiz.dart';
-import '../DataScripts/AuxFunctions.dart';
 import 'package:chewie/chewie.dart';
 import 'package:video_player/video_player.dart';
 
@@ -37,8 +35,6 @@ class CardInstructor extends StatelessWidget {
       colors: <Color>[Colors.cyan, Colors.blueAccent],
     ).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
 
-    List<Map<String, Object>> listAnswers =
-        QuizData().question[position]['answers'];
     return Card(
       semanticContainer: true,
       clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -87,9 +83,8 @@ class CardInstructor extends StatelessWidget {
         ),
         Container(
           height: 50,
-          width: 350,
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+          width: 500,
+          child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
             Container(
               width: 200,
               margin: EdgeInsets.all(8),
@@ -97,15 +92,15 @@ class CardInstructor extends StatelessWidget {
                 onPressed: () {},
                 padding: EdgeInsets.all(0.0),
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(75.0)),
+                    borderRadius: BorderRadius.circular(0.0)),
                 child: Ink(
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Colors.cyan, Colors.blueAccent],
+                        colors: [Colors.cyan, Colors.cyan[700]],
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
                       ),
-                      borderRadius: BorderRadius.circular(28.0)),
+                      borderRadius: BorderRadius.circular(0.0)),
                   child: Container(
                     constraints:
                         BoxConstraints(maxWidth: 280.0, minHeight: 52.0),
@@ -123,15 +118,34 @@ class CardInstructor extends StatelessWidget {
               ),
             ),
             Container(
-              width: 120,
-              child: FlatButton(
+              width: 168,
+              margin: EdgeInsets.symmetric(vertical: 8),
+              child: RaisedButton(
                 onPressed: () {},
+                padding: EdgeInsets.all(0.0),
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                color: Colors.grey,
-                child: Text(
-                  "Details",
-                  style: TextStyle(color: Colors.white, fontSize: 17),
+                    borderRadius: BorderRadius.circular(0.0)),
+                child: Ink(
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.black, Colors.grey[700]],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
+                      borderRadius: BorderRadius.circular(0.0)),
+                  child: Container(
+                    constraints:
+                        BoxConstraints(maxWidth: 280.0, minHeight: 52.0),
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Details",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -139,7 +153,7 @@ class CardInstructor extends StatelessWidget {
         )
       ]),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(40.0),
+        borderRadius: BorderRadius.circular(0.0),
       ),
       elevation: 5,
       margin: EdgeInsets.all(10),

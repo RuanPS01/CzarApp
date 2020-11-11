@@ -21,10 +21,11 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  flutter_map: any
+  flutter_map_marker_cluster: any
+  custom_navigation_bar: ^0.3.2
   chewie: ^0.9.10
   video_player: ^0.7.0
-  curved_navigation_bar: ^0.1.2 #latest version
-  fancy_bottom_navigation: ^0.1.0
   calendarro: ^1.2.0
   floating_search_bar: ^0.3.0
   flutter:

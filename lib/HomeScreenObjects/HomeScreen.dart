@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
           child: TextField(
             obscureText: true,
             decoration: InputDecoration(
-                border: OutlineInputBorder(),
+                //border: OutlineInputBorder(gapPadding: 0, borderRadius: BorderRadius.all(Radius.circular(50))),
                 labelText: 'Search Instructor',
                 fillColor: Colors.cyan),
             cursorColor: Colors.cyan,
