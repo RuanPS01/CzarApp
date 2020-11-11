@@ -1,16 +1,8 @@
-# first_task_flutter
+# CzarApp
 
-A new Flutter project.
+This project has the initial intention of creating a useful solution for teachers and students of driving school, integrating strategies of successful applications today. Such a solution is well applied to the organization of driving schools on the European continent. 
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Project technologies
+ - Dart + Flutter
+ - Maps APIs [not implemented]
+ - Realtime Database (Firebase) [not implemented]
