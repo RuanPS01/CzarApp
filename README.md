@@ -6,3 +6,4 @@ This project has the initial intention of creating a useful solution for teacher
  - Dart + Flutter
  - Maps APIs [not implemented]
  - Realtime Database (Firebase) [not implemented]
+ - *and others to come
