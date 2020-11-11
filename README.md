@@ -4,7 +4,7 @@ This project has the initial intention of creating a useful solution for teacher
 
 # Idealization
  - First prototype made using Unity software.
-![CzarAppScreens](https://github.com/RuanPS01/CzarApp/blob/master/OTHER_FILES/Images/CzarAppScreens.png?raw=true)
+![CzarAppScreensV2](https://github.com/RuanPS01/CzarApp/blob/master/OTHER_FILES/Images/CzarAppScreensV2.png?raw=true)
 
 
  - Actual prototype using Flutter.
